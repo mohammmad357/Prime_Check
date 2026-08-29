@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*.exe
+*.out
+prime_check
+test_prime_check
+.vscode/

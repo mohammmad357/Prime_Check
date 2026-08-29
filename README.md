@@ -1,47 +1,47 @@
-# Prime Number Checker (C & Python)
+# Prime Number Checker — C & Python
 
-This repository contains simple and clean implementations of a **Prime Number Checker** using **C** and **Python**.  
-The programs read an integer from the user and determine whether the number is **prime** or **not prime**.
+[![Tests](https://github.com/mohammmad357/Prime_Check/actions/workflows/tests.yml/badge.svg)](https://github.com/mohammmad357/Prime_Check/actions/workflows/tests.yml)
 
----
+Two dependency-free implementations of an efficient prime-number checker. Both versions handle negative values, zero, one, invalid input, and large integers correctly.
 
-## What is a Prime Number?
+## Algorithm
 
-A **prime number** is a natural number greater than 1 that has **exactly two distinct divisors**:
-- 1
-- Itself
+A number below 2 is not prime. After handling 2 and even numbers, the program checks only odd divisors up to the integer square root of the input. This reduces the running time from O(n) to O(sqrt(n)).
 
-Examples:
-- Prime numbers: 2, 3, 5, 7, 11, 13
-- Not prime numbers: 1, 4, 6, 8, 9, 10
+## Run the Python version
 
----
+```bash
+python Prime_Check.py
+```
 
-## Project Structure
+## Build and run the C version
 
+```bash
+gcc -std=c11 -Wall -Wextra -Werror -pedantic Prime_Check.c -o prime_check
+./prime_check
+```
 
+On Windows, run `prime_check.exe` after compilation.
 
----
+## Tests
 
-## Algorithm Description
+```bash
+python -m unittest -v
+gcc -std=c11 -Wall -Wextra -Werror -pedantic -DPRIME_CHECK_NO_MAIN Prime_Check.c test_prime_check.c -o test_prime_check
+./test_prime_check
+```
 
-The algorithm works as follows:
+GitHub Actions runs both suites for every push and pull request.
 
-1. Read an integer number from the user.
-2. If the number is less than or equal to 1, it is not prime.
-3. Check divisibility from 2 up to the square root of the number.
-4. If any divisor is found, the number is not prime.
-5. If no divisor is found, the number is prime.
+## Project structure
 
-This method is efficient and commonly used in practice.
+```text
+Prime_Check.py       Python implementation and CLI
+Prime_Check.c        C implementation and CLI
+test_prime_check.py  Python unit tests
+test_prime_check.c   C unit tests
+```
 
----
+## License
 
-## Input and Output
-
-### Input
-A single integer entered by the user.
-
-Example:
-22
-Not a prime number
+Released under the [MIT License](LICENSE).
